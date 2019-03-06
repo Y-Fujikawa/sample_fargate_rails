@@ -1,0 +1,18 @@
+version: '2'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/usr/local/src/sample_fargate_rails
+    tty: true
+    stdin_open: true
+    command: sh -c 'rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0'
+    ports:
+      - "3100:3000"
+    depends_on:
+      - app_db
+  app_db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
