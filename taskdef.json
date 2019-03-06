@@ -6,8 +6,8 @@
       "image": "<IMAGE1_NAME>",
       "portMappings": [
         {
-          "containerPort": 3000,
-          "hostPort": 3000,
+          "containerPort": 80,
+          "hostPort": 80,
           "protocol": "tcp"
         }
       ],
@@ -26,7 +26,8 @@
           "valueFrom": "/sample/db/password"
         }
       ],
-      "command": ["bundle", "exec", "puma", "-C", "/usr/local/src/sample_fargate_rails/config/puma/production.rb", "-d"]
+      "workingDirectory": "/usr/local/src/sample_fargate_rails",
+      "command": ["bundle", "exec", "puma", "-C", "config/puma/production.rb", "-d"]
     }
   ],
   "requiresCompatibilities": ["FARGATE"],

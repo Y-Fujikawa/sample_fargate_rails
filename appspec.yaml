@@ -6,4 +6,4 @@ Resources:
         TaskDefinition: "<TASK_DEFINITION>"
         LoadBalancerInfo:
             ContainerName: "web"
-            ContainerPort: "3000"
+            ContainerPort: "80"
