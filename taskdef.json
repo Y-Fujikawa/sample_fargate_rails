@@ -27,7 +27,15 @@
         }
       ],
       "workingDirectory": "/usr/local/src/sample_fargate_rails",
-      "command": ["bundle", "exec", "puma", "-C", "config/puma/production.rb", "-d"]
+      "command": ["bundle", "exec", "puma", "-C", "config/puma/production.rb", "-d"],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "awslogs-sample",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "awslogs-sample"
+        }
+      },
     }
   ],
   "requiresCompatibilities": ["FARGATE"],
