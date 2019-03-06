@@ -18,8 +18,8 @@
           "valueFrom": "/sample/db/name"
         },
         {
-          "name": "DB_USER",
-          "valueFrom": "/sample/db/user"
+          "name": "DB_USERNAME",
+          "valueFrom": "/sample/db/username"
         },
         {
           "name": "DB_PASSWORD",
