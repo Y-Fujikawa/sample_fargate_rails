@@ -9,6 +9,9 @@ services:
     command: sh -c 'rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0'
     ports:
       - "3100:3000"
+#    command: sh -c 'rm -f tmp/pids/puma.pid && bundle exec puma -C config/puma/production.rb'
+#    ports:
+#     - "80:80"
     depends_on:
       - app_db
   app_db:
