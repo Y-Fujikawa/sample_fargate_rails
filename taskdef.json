@@ -26,7 +26,7 @@
           "valueFrom": "/sample/db/password"
         }
       ],
-      "command": ["bundle", "exec", "puma", "-C", "/usr/local/src/sample_fargate_rails/config/puma/production.rb"]
+      "command": ["bundle", "exec", "puma", "-C", "/usr/local/src/sample_fargate_rails/config/puma/production.rb", "-d"]
     }
   ],
   "requiresCompatibilities": ["FARGATE"],
