@@ -1,0 +1,37 @@
+{
+  "executionRoleArn": "ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "web",
+      "image": "<IMAGE1_NAME>",
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "secrets": [
+        {
+          "name": "DB_NAME",
+          "valueFrom": "/sample/db/name"
+        },
+        {
+          "name": "DB_USER",
+          "valueFrom": "/sample/db/user"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "valueFrom": "/sample/db/password"
+        }
+      ],
+      "command": ["bundle exec puma -t 5:5 -e production -C config/puma.rb"]
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "memory": "512",
+  "family": "web"
+}

@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: sample_fargate_rails_production
-  username: sample_fargate_rails
-  password: <%= ENV['SAMPLE_FARGATE_RAILS_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
