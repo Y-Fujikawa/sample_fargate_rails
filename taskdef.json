@@ -25,9 +25,7 @@
           "name": "DB_PASSWORD",
           "valueFrom": "/sample/db/password"
         }
-      ],
-      "workingDirectory": "/usr/local/src/sample_fargate_rails",
-      "command": ["sh", "-c", "bundle", "exec", "puma", "-C", "config/puma/production.rb", "-d"]
+      ]
     }
   ],
   "requiresCompatibilities": ["FARGATE"],
