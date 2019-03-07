@@ -14,6 +14,10 @@
       "essential": true,
       "secrets": [
         {
+          "name": "DB_HOST",
+          "valueFrom": "/sample/db/host"
+        },
+        {
           "name": "DB_NAME",
           "valueFrom": "/sample/db/name"
         },

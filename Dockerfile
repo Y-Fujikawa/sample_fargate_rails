@@ -7,5 +7,5 @@ ADD . /usr/local/src/sample_fargate_rails
 ADD Gemfile /usr/local/src/sample_fargate_rails/Gemfile
 ADD Gemfile.lock /usr/local/src/sample_fargate_rails/Gemfile.lock
 RUN bundle install --jobs=4
-CMD sh -c 'rm -f tmp/pids/server.pid && bundle exec rails s -p 80 -b 0.0.0.0'
+CMD sh -c 'rm -f tmp/pids/server.pid && bundle exec rails s -e production -p 80 -b 0.0.0.0'
 #CMD bundle exec puma -C config/puma/production.rb -d
