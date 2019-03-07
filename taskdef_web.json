@@ -2,7 +2,7 @@
   "executionRoleArn": "ecsTaskExecutionRole",
   "containerDefinitions": [
     {
-      "name": "migrate",
+      "name": "web",
       "image": "<IMAGE1_NAME>",
       "portMappings": [
         {
@@ -29,14 +29,12 @@
           "name": "DB_PASSWORD",
           "valueFrom": "/sample/db/password"
         }
-      ],
-      "workingDirectory": "/usr/local/src/sample_fargate_rails",
-      "command": ["bundle", "exec", "rails", "db:migrate", "RAILS_ENV=production"]
+      ]
     }
   ],
   "requiresCompatibilities": ["FARGATE"],
   "networkMode": "awsvpc",
   "cpu": "256",
   "memory": "512",
-  "family": "migrate"
+  "family": "web"
 }
