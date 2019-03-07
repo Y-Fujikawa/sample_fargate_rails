@@ -29,7 +29,9 @@
           "name": "DB_PASSWORD",
           "valueFrom": "/sample/db/password"
         }
-      ]
+      ],
+      "workingDirectory": "/usr/local/src/sample_fargate_rails",
+      "command": ["bundle", "exec", "rails", "s", "-p", "80", "-b", "0.0.0.0", "-e", "production"]
     }
   ],
   "requiresCompatibilities": ["FARGATE"],
