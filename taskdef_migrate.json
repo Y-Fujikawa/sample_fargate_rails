@@ -30,7 +30,7 @@
           "valueFrom": "/sample/db/password"
         }
       ],
-      "workingDirectory": "",
+      "workingDirectory": "/usr/local/src/sample_fargate_rails",
       "command": ["bundle", "exec", "rails", "db:migrate", "RAILS_ENV=production"]
     }
   ],
