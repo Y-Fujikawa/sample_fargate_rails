@@ -31,7 +31,15 @@
         }
       ],
       "workingDirectory": "/usr/local/src/sample_fargate_rails",
-      "entryPoint": ["bundle", "exec", "rails", "db:migrate", "RAILS_ENV=production"]
+      "entryPoint": ["bundle", "exec", "rails", "db:migrate", "RAILS_ENV=production"],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/migrate",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
     }
   ],
   "requiresCompatibilities": ["FARGATE"],
