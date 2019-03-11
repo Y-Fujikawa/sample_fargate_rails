@@ -19,7 +19,7 @@ phases:
       - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
       - echo $DB_HOST $DB_NAME $DB_USERNAME $DB_PASSWORD
-      - docker run --rm --env RAILS_ENV=production --env DB_HOST=$DB_HOST --env DB_NAME=$DB_NAME DB_USERNAME=$DB_USERNAME --env DB_PASSWORD=$DB_PASSWORD $REPOSITORY_URI:latest bin/rails db:migrate
+      - docker run --rm --env RAILS_ENV=production --env DB_HOST=$DB_HOST --env DB_NAME=$DB_NAME --env DB_USERNAME=$DB_USERNAME --env DB_PASSWORD=$DB_PASSWORD $REPOSITORY_URI:latest bin/rails db:migrate
   post_build:
     commands:
       - echo Build completed on `date`
