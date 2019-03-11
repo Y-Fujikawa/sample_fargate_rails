@@ -1,14 +1,14 @@
 version: 0.0
-resources:
-  - targetService:
-      type: AWS::ECS::Service
-      properties:
-        taskDefinition: "<TASK_DEFINITION>"
-        loadBalancerInfo:
-            containerName: "migrate"
-            containerPort: "80"
-hooks:
-  afterInstall:
-    - location: scripts/migrate.sh
-          timeout: 1200
-          runas: root
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "<TASK_DEFINITION>"
+        LoadBalancerInfo:
+          ContainerName: "web"
+          ContainerPort: "80"
+Hooks:
+  AfterInstall:
+    - Location: scripts/migrate.sh
+      Timeout: 1200
+      Runas: root

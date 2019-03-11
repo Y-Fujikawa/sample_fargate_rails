@@ -1,9 +1,9 @@
 version: 0.0
-resources:
-  - targetService:
-      type: AWS::ECS::Service
-      properties:
-        taskDefinition: "<TASK_DEFINITION>"
-        loadBalancerInfo:
-            containerName: "web"
-            containerPort: "80"
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "<TASK_DEFINITION>"
+        LoadBalancerInfo:
+          ContainerName: "web"
+          ContainerPort: "80"
