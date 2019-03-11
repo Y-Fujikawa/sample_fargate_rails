@@ -1,0 +1,16 @@
+version: '2'
+services:
+  migrate:
+    image: ${REPOSITORY_URI}:latest
+    command: ["bundle", "exec", "rails", "db:migrate"]
+    environment:
+      - RAILS_ENV=production
+      - DB_HOST=$DB_HOST
+      - DB_USERNAME=$DB_USERNAME
+      - DB_PASSWORD=$DB_PASSWORD
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${AWS_DEFAULT_REGION}
+        awslogs-group: "/ecs/migrate"
+        awslogs-stream-prefix: ecs

@@ -1,4 +1,9 @@
 version: 0.2
+
+environment_variables:
+  plaintext:
+    DOCKER_BUILDKIT: "1"
+
 phases:
   pre_build:
     commands:
@@ -20,5 +25,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - printf '{"Version":"1.0","ImageURI":"%s"}' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
+      - echo Migrate started on `date`
+      - ecs-cli compose -f migrate-compose.yml --project-name migrate up --cluster web-cluster --region $AWS_DEFAULT_REGION
 artifacts:
     files: imageDetail.json
