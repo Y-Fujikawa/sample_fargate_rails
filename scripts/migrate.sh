@@ -1,5 +1,5 @@
 #!/bin/sh
 
-set -e
+set -euo pipefail
 
 bundle exec rails db:migrate

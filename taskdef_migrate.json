@@ -2,7 +2,7 @@
   "executionRoleArn": "ecsTaskExecutionRole",
   "containerDefinitions": [
     {
-      "name": "web-migrate",
+      "name": "web",
       "image": "<IMAGE1_NAME>",
       "portMappings": [
         {
