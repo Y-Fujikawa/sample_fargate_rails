@@ -26,6 +26,9 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - printf '{"Version":"1.0","ImageURI":"%s"}' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
       - echo Migrate started on `date`
-      - ecs-cli compose -f migrate-compose.yml --project-name migrate up --cluster web-cluster --region $AWS_DEFAULT_REGION
+      - echo ecs-cli install
+      - curl -o ecs-cli.asc https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest.asc
+      - ecs-cli --version
+      - echo Post Build completed on `date`
 artifacts:
     files: imageDetail.json
