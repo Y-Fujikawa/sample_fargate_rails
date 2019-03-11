@@ -7,8 +7,3 @@ Resources:
         LoadBalancerInfo:
           ContainerName: "web"
           ContainerPort: "80"
-Hooks:
-  AfterInstall:
-    - Location: scripts/migrate.sh
-      Timeout: 1200
-      Runas: root
