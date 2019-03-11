@@ -7,3 +7,8 @@ Resources:
         LoadBalancerInfo:
             ContainerName: "migrate"
             ContainerPort: "80"
+Hook:
+  AfterInstall:
+    - location: scripts/migrate.sh
+          timeout: 60
+          runas: root

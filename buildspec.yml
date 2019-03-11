@@ -25,9 +25,5 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - printf '{"Version":"1.0","ImageURI":"%s"}' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
-      - echo Migrate started on `date`
-      - echo ecs-cli install
-      - ecs-cli --version
-      - echo Post Build completed on `date`
 artifacts:
     files: imageDetail.json

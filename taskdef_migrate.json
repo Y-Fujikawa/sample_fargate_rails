@@ -2,7 +2,7 @@
   "executionRoleArn": "ecsTaskExecutionRole",
   "containerDefinitions": [
     {
-      "name": "migrate",
+      "name": "web-migrate",
       "image": "<IMAGE1_NAME>",
       "portMappings": [
         {
@@ -30,12 +30,10 @@
           "valueFrom": "/sample/db/password"
         }
       ],
-      "workingDirectory": "/usr/local/src/sample_fargate_rails",
-      "entryPoint": ["bundle", "exec", "rails", "db:migrate", "RAILS_ENV=production"],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/migrate",
+          "awslogs-group": "/ecs/web-migrate",
           "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs"
         }
@@ -46,5 +44,5 @@
   "networkMode": "awsvpc",
   "cpu": "256",
   "memory": "512",
-  "family": "migrate"
+  "family": "web"
 }
