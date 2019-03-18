@@ -43,15 +43,12 @@
           "awslogs-stream-prefix": "ecs"
         }
       }
-    }, {
+    },
+    {
       "name": "datadog-agent",
       "image": "datadog/agent:latest",
       "essential": true,
       "environment": [
-        {
-          "name": "DD_API_KEY",
-          "value": "$YOUR_API_KEY"
-        },
         {
           "name": "ECS_FARGATE",
           "value": "true"
