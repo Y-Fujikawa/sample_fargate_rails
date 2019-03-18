@@ -1,0 +1,4 @@
+hello_sidekiq:
+  cron: "0 * * * *"
+  class: "Crons::HelloWorldJob"
+  queue: default
