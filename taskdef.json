@@ -30,6 +30,11 @@
           "valueFrom": "/sample/db/password"
         }
       ],
+      "dockerLabels": {
+        "com.datadoghq.ad.instances": "[{\"host\": \"%%host%%\", \"port\": 80}]",
+        "com.datadoghq.ad.check_names": "[\"web\"]",
+        "com.datadoghq.ad.init_configs": "[{}]"
+      },
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -38,6 +43,26 @@
           "awslogs-stream-prefix": "ecs"
         }
       }
+    }, {
+      "name": "datadog-agent",
+      "image": "datadog/agent:latest",
+      "essential": true,
+      "environment": [
+        {
+          "name": "DD_API_KEY",
+          "value": "$YOUR_API_KEY"
+        },
+        {
+          "name": "ECS_FARGATE",
+          "value": "true"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "DD_API_KEY",
+          "valueFrom": "/sample/datadog/api_key"
+        }
+      ]
     }
   ],
   "requiresCompatibilities": ["FARGATE"],
