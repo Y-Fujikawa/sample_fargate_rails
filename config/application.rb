@@ -30,6 +30,11 @@ module SampleFargateRails
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    # Default set time zone JST.
+    config.time_zone = "Tokyo"
+    # Register to DB, Time zone JST.
+    config.active_record.default_timezone = :local
+
 
     config.active_job.queue_adapter = :sidekiq
   end
